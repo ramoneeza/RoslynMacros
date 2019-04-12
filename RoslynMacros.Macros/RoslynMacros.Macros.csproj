@@ -5,7 +5,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <PackageId>Rop.RoslynMacros.Macros</PackageId>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Authors>Ram�n Ordiales Plaza</Authors>
+    <Authors>Ramón Ordiales Plaza</Authors>
 	<Version>1.0.1</Version>
 	<FileVersion>1.0.1</FileVersion>
   </PropertyGroup>

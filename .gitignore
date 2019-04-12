@@ -10,6 +10,9 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+#Pack Directories
+[Pp]acks/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

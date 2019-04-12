@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -10,9 +10,6 @@
     <Compile Update="Interfaces\IUser.IRecord.Auto.cs">
       <DependentUpon>Interfaces\User.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\AbsUser.IUser.Auto.cs" />
-    <Compile Include="Model\User.IUser.Auto.cs" />
-    <Compile Include="Sql\SqlUser.IUser.Auto.cs" />
     <Compile Update="Sql\SqlUser.IUser.Auto.cs">
       <DependentUpon>Sql\SqlUser.cs</DependentUpon>
     </Compile>
