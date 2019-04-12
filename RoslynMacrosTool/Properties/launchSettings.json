@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "RoslynMacrosTool": {
+      "commandName": "Project",
+      "commandLineArgs": "-s autointerface autoimplement -v",
+      "workingDirectory": "E:\\Dropbox\\ROAMING\\Visual Studio 17\\Snippets\\RoslynMacros\\Samples"
+    }
+  }
+}

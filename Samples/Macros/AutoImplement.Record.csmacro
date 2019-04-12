@@ -1,0 +1,78 @@
+﻿//![AutoImplement("AutoImplement.Record.csmacro",typeof($interface)),
+//!     MacroFlags("@CreateKeyConstructor","@HasEmptyConstructor","@KeySetter")
+//!]
+// Autoimplementing class @CLASSNAME
+
+//! Calculating options
+@{
+	var tabla=@REFINTERFACE_DECOVALUE("Table");
+	if (tabla=="")	tabla=@CLASS_DECOVALUE("Table");
+	var keyprop=@REFINTERFACE_PROPERTIESDECORATED("Key","ExplicitKey").FirstOrDefault();
+	var modifiercto=@CLASS_ISABSTRACT?"protected":"public";
+}
+
+@CLASSUSINGS
+#using System
+#using Samples.Attributes
+
+namespace @CLASSNAMESPACE
+{
+    public partial class @CLASSNAME : @REFINTERFACE_NAME
+    {
+#foreach @PROP in @REFINTERFACE_PROPERTIESALL
+#if !IsExcluded(@PROP_NAME)
+#foreach @DECO in @PROP_ATTRIBUTES
+#if @DECO IN "Key","Computed","ExplicitKey"
+		[@DECO]
+#endif 
+#endforeach
+@{
+   var initvalue = "";
+   if (@PROP.DECO("InitValue")){
+      initvalue=@PROP.DECOVALUE("InitValue");
+      initvalue=(@PROP.RETURNTYPE=="string")?$"=\"{initvalue}\";":$"= {initvalue};";
+   }
+   var iskey=PROP.DECO("Key","ExplicitKey");
+   var incsetter=(iskey)?"private set;":"";
+   if (@PROP.HASSETTER || (Flags["@KeySetter"] && iskey)) incsetter="set;";
+   var isvirtual=iskey?"":"virtual";
+}
+		public @isvirtual @PROP_RETURNTYPE @PROP_NAME { get; @incsetter}@initvalue
+#endif
+#endforeach
+#if !@HasEmptyConstructor
+        @modifiercto @CLASSNAME(){}
+#endif
+#if @CreateKeyConstructor
+		@modifiercto @CLASSNAME(@keyprop_RETURNTYPE key):this(){
+			@keyprop_NAME=key;
+		}
+#endif
+        @modifiercto @CLASSNAME(@REFINTERFACE_NAME other):this(){
+			other.ShallowCopy(this);
+#foreach @PROP in @REFINTERFACE_PROPERTIESALLREAD
+			@PROP_NAME=other.@PROP_NAME;
+#endforeach 
+        }
+#if (@CLASS_ISABSTRACT)
+		protected abstract @REFINTERFACE_NAME IntClone();
+		object ICloneable.Clone()=>IntClone();
+#else
+        public virtual @CLASSNAME Clone()=>new @CLASSNAME(this);
+		object ICloneable.Clone()=>Clone();
+#endif
+        public override bool Equals(object obj)
+        {
+            if (obj is @REFINTERFACE_NAME other)
+                return Helper@REFINTERFACE_NAME.Equals(this,other);
+            else
+                return false;
+        }
+        public override int GetHashCode()=>Helper@REFINTERFACE_NAME.GetHashCode(this);
+
+
+#if @tabla!=""
+	   public static string Table()=>"@tabla";
+#endif
+    }
+}

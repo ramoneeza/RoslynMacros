@@ -1,0 +1,42 @@
+﻿//![AutoInterface("IRecord"),
+//!]
+// AutoInterface Helper@INTERFACENAME
+#echo $"Parsing: Autointerface.IRecord over {@INTERFACENAME}"
+#echo $"Creating: Helper{@INTERFACENAME}"
+
+//! Copying using from interface
+@INTERFACEUSINGS
+//! Add extra usings
+#using System
+
+namespace @INTERFACENAMESPACE
+{
+    public static partial class Helper@INTERFACENAME
+    {
+		public static bool Equals(@INTERFACENAME x, @INTERFACENAME y)
+        {
+            if (ReferenceEquals(x, y)) return true;
+            if ((x == null) || (y == null)) return false;
+            return
+#foreach @PROP in @INTERFACE_PROPERTIESALL
+                x.@PROP_NAME == y.@PROP_NAME &&
+#endforeach
+                true;
+        }
+        public static int GetHashCode(this @INTERFACENAME obj)
+        {
+            return 
+#foreach @PROP in @INTERFACE_PROPERTIESALL
+			((obj.@PROP_NAME as object)?.GetHashCode()??0)*17 ^
+#endforeach
+            0;
+        }
+        public static void ShallowCopy(this @INTERFACENAME from, @INTERFACENAME to)
+        {
+#foreach @PROP in @INTERFACE_PROPERTIESALLRW
+            to.@PROP_NAME = from.@PROP_NAME;
+#endforeach
+        }
+        
+	}	
+}

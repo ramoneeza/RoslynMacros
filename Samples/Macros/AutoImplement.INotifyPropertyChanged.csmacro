@@ -1,0 +1,39 @@
+﻿//![AutoImplement("Autoimplement.INotifyPropertyChanged.csmacro",typeof($Interface)),
+//!     MacroFlags("@SkipImplementation")
+//!]
+// Autoimplementing class @CLASSNAME
+
+@CLASSUSINGS
+#using System
+#using Samples.Attributes
+
+namespace @CLASSNAMESPACE
+{
+    public partial class @CLASSNAME : INotifyPropertyChanged
+    {
+#if !@SkipImplementation
+	public event PropertyChangedEventHandler PropertyChanged;
+	protected virtual void OnPropertyChanged(params string[] properties){
+		foreach(var p in properties)
+			PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(p));
+	}
+#endif
+
+#foreach @PROP in @REFINTERFACE_PROPERTIESALL
+#if (!IsExcluded(@PROP_NAME) && !@PROP_DECO("Key","ExplicitKey"))
+	public override @PROP_RETURNTYPE @PROP_NAME{
+		get=>base.@PROP_NAME;
+#if @PROP_HASSETTER
+		set{
+			if (@PROP_NAME.Equals(value)) return;
+			base.@PROP_NAME=value;
+			OnPropertyChanged(nameof(@PROP_NAME));
+		}
+#endif
+
+	}
+#endif 
+#endforeach
+
+    }
+}

@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net472;netcoreapp2.2</TargetFrameworks>
+    <LangVersion>7.3</LangVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PackageId>Rop.RoslynMacros.Scripts</PackageId>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Authors>Ramón Ordiales Plaza</Authors>
+	<Version>1.0.1</Version>
+	<FileVersion>1.0.1</FileVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2019.1.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin/release/net472/*.dll" pack="true" PackagePath="lib/net472" />
+    <None Include="bin/release/net472/*.xml" pack="true" PackagePath="lib/net472" />
+    <None Include="bin/release/net472/x64/*.dll" pack="true" PackagePath="lib/net472/x64" />
+    <None Include="bin/release/net472/x86/*.dll" pack="true" PackagePath="lib/net472/x86" />
+    <None Include="bin/release/net472/en/*.dll" pack="true" PackagePath="lib/net472/en" />
+    <None Include="bin/release/net472/es/*.dll" pack="true" PackagePath="lib/net472/es" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RoslynMacros.Macros\RoslynMacros.Macros.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+</Project>

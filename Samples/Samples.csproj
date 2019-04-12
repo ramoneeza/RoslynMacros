@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RoslynMacros.Attributes\RoslynMacros.Attributes.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Interfaces\IUser.IRecord.Auto.cs">
+      <DependentUpon>Interfaces\User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbsUser.IUser.Auto.cs" />
+    <Compile Include="Model\User.IUser.Auto.cs" />
+    <Compile Include="Sql\SqlUser.IUser.Auto.cs" />
+    <Compile Update="Sql\SqlUser.IUser.Auto.cs">
+      <DependentUpon>Sql\SqlUser.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Model\AbsUser.IUser.Auto.cs">
+      <DependentUpon>Model\AbsUser.cs</DependentUpon>
+    </Compile>
+  <Compile Update="Model\User.IUser.Auto.cs">
+			<DependentUpon>Model\User.cs</DependentUpon></Compile>
+</ItemGroup>
+</Project>
