@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <LangVersion>7.3</LangVersion>
     <PackageId>Rop.RoslynMacros.Tool</PackageId>
-    <Version>1.0.3</Version>
+    <Version>1.1.0</Version>
     <Authors>Ramón Ordiales Plaza</Authors>
     <Product>Roslyn Macros Tool</Product>
     <RootNamespace>RoslynMacros</RootNamespace>
@@ -19,7 +19,7 @@
 	<tags>templates macros T4 roslyn tool net.core</tags>
 	<PackageTags>roslyn AOP T4 macros Roslyn</PackageTags>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<PackageLicenseUrl>LGPL-2.1-only</PackageLicenseUrl>
+	<PackageLicense>LGPL-2.1-only</PackageLicense>
 	<PackageProjectUrl>https://github.com/ramoneeza/RoslynMacros</PackageProjectUrl>
   </PropertyGroup>
 
@@ -31,14 +31,13 @@
 
   <ItemGroup>
     <PackageReference Include="LightInject" Version="5.4.0" />
+    <PackageReference Include="Microsoft.Build" Version="16.0.461" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.Build.Locator" Version="1.2.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\RoslynMacros.Common\RoslynMacros.Common.csproj" />
-    <ProjectReference Include="..\RoslynMacros.Macros\RoslynMacros.Macros.csproj" />
-    <ProjectReference Include="..\RoslynMacros.MsBuild\RoslynMacros.MsBuild.csproj" />
-    <ProjectReference Include="..\RoslynMacros.Scripts\RoslynMacros.Scripts.csproj" />
+    <PackageReference Include="JetBrains.Annotations" Version="2019.1.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="3.0.0" />
   </ItemGroup>
 
 </Project>

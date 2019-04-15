@@ -40,7 +40,7 @@ namespace RoslynMacros
 
         public override void InitProject()
         {
-            ServiceContainer.Register<IProject,MsBuildProject>(new PerContainerLifetime());
+            ServiceContainer.Register<IProject>(s=>new MsBuildProject(s.GetInstance<IConfiguration>()),new PerContainerLifetime());
         }
     }
 }

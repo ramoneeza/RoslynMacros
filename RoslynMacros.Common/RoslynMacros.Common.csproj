@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net472;netcoreapp2.2</TargetFrameworks>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <LangVersion>7.3</LangVersion>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <PackageId>Rop.RoslynMacros.Common</PackageId>
@@ -14,6 +14,7 @@
     <PackageReference Include="LightInject" Version="5.4.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.0.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
