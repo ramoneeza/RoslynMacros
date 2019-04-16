@@ -5,11 +5,11 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <LangVersion>7.3</LangVersion>
     <PackageId>Rop.RoslynMacros.Tool</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <Authors>Ramón Ordiales Plaza</Authors>
     <Product>Roslyn Macros Tool</Product>
     <RootNamespace>RoslynMacros</RootNamespace>
-	<PackAsTool />
+	<PackAsTool>true</PackAsTool>
 	<ToolCommandName>RoslynMacros</ToolCommandName>
 	<PackageOutputPath>./Packs</PackageOutputPath>
 	<DebugType>portable</DebugType>
