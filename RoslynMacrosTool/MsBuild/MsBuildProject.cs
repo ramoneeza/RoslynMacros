@@ -142,6 +142,7 @@ namespace RoslynMacros.MsBuild
             var changed = false;
             var file = StripBase(fifile);
             var nest = StripBase(finest);
+            var neststrip = Path.GetFileName(nest);
             if (file.EndsWith(".log")) return false;
             var fileitem = EvaluationCurrentProject.Items.FirstOrDefault(i => i.EvaluatedInclude == file);
             if (fileitem == null)
@@ -158,20 +159,20 @@ namespace RoslynMacros.MsBuild
                     }
                     else
                     {
-                        fileitem?.SetMetadataValue("DependentUpon", nest);
+                        fileitem?.SetMetadataValue("DependentUpon", neststrip);
                     }
                 }
             }
             else
             {
                 var haynest = fileitem.GetMetadataValue("DependentUpon");
-                if (haynest != nest)
+                if ((haynest != nest)&&(haynest != neststrip))
                 {
                     changed = true;
                     if (!fileitem.IsImported)
                     {
                         if (!string.IsNullOrEmpty(haynest)) fileitem.RemoveMetadata(haynest);
-                        if (!string.IsNullOrEmpty(nest)) fileitem.SetMetadataValue("DependentUpon", nest);
+                        if (!string.IsNullOrEmpty(nest)) fileitem.SetMetadataValue("DependentUpon", neststrip);
                     }
                     else
                     {

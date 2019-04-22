@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <LangVersion>7.3</LangVersion>
     <PackageId>Rop.RoslynMacros.Tool</PackageId>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
     <Authors>Ramón Ordiales Plaza</Authors>
     <Product>Roslyn Macros Tool</Product>
     <RootNamespace>RoslynMacros</RootNamespace>
@@ -21,6 +21,7 @@
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<PackageLicense>LGPL-2.1-only</PackageLicense>
 	<PackageProjectUrl>https://github.com/ramoneeza/RoslynMacros</PackageProjectUrl>
+	<RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
 
   <ItemGroup>

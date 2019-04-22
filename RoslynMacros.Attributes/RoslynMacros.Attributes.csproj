@@ -2,13 +2,25 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-	<Version>1.0.2.14</Version>
+	<Version>1.1.0</Version>
     <PackageId>Rop.RoslynMacros.Attributes</PackageId>
     <Authors>Ramón Ordiales Plaza</Authors>
-    <RepositoryUrl>\\localhost\NugetLocal</RepositoryUrl>
-	<FileVersion>1.0.2.14</FileVersion>
+    <RepositoryUrl>https://github.com/ramoneeza/RoslynMacros</RepositoryUrl>
+	<FileVersion>1.1.0.0</FileVersion>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<AssemblyVersion>1.1.0.0</AssemblyVersion>
+	<Description>AOP Alternative to T4. Basic attributes to decorate type for RoslynMacros use.</Description>
+	<Product>Roslyn Macros Attributes</Product>
+	<Copyright>(c)2019 Ramón Ordiales Plaza</Copyright>
+	<PackageProjectUrl>https://github.com/ramoneeza/RoslynMacros</PackageProjectUrl>
+	<PackageTags>roslyn AOP T4 macros Roslyn</PackageTags>
+	<PackageOutputPath>./Packs</PackageOutputPath>
   </PropertyGroup>
-
+  <ItemGroup>
+    <Compile Remove="Packs\**" />
+    <EmbeddedResource Remove="Packs\**" />
+    <None Remove="Packs\**" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2019.1.1" />
   </ItemGroup>
