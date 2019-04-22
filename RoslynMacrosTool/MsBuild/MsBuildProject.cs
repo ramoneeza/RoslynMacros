@@ -166,10 +166,12 @@ namespace RoslynMacros.MsBuild
             else
             {
                 var haynest = fileitem.GetMetadataValue("DependentUpon");
-                if ((haynest != nest)&&(haynest != neststrip))
+                var isold = !fileitem.IsImported;
+                var cmpnest = (isold) ? neststrip : nest;
+                if ((haynest != cmpnest))
                 {
                     changed = true;
-                    if (!fileitem.IsImported)
+                    if (isold)
                     {
                         if (!string.IsNullOrEmpty(haynest)) fileitem.RemoveMetadata(haynest);
                         if (!string.IsNullOrEmpty(nest)) fileitem.SetMetadataValue("DependentUpon", neststrip);
