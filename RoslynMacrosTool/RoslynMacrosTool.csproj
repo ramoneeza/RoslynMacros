@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <LangVersion>7.3</LangVersion>
     <PackageId>Rop.RoslynMacros.Tool</PackageId>
-    <Version>1.1.3</Version>
+    <Version>1.1.4</Version>
     <Authors>Ramón Ordiales Plaza</Authors>
     <Product>Roslyn Macros Tool</Product>
     <RootNamespace>RoslynMacros</RootNamespace>

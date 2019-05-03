@@ -59,11 +59,12 @@ namespace RoslynMacros.Common.Classes
             }
 
             // Execute macro
-            var refinterface = args[0].StartsWith("I") ? args[0] : "";
-            var refdata = Engine.GetRecordForSymbol(refinterface);
+            //var refinterface = args[0].StartsWith("I") ? args[0] : "";
+            var reftype = args[0]?? "";
+            var refdata = Engine.GetRecordForSymbol(reftype);
             if (refdata == null)
             {
-                OutputEngine.ConsoleWrite($"{refinterface} is defined outside project. @REFINTERFACE will be null.");
+                OutputEngine.ConsoleWrite($"{reftype} is defined outside project. @REFINTERFACE/@REFCLASS will be null.");
             }
             var variables = CreateVariables(a, outputname, a.AttributeList, refdata);
             var res = macro.Execute(variables, out var error);

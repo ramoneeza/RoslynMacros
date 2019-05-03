@@ -2,7 +2,7 @@
   "profiles": {
     "RoslynMacrosTool": {
       "commandName": "Project",
-      "commandLineArgs": "-s autoimplement -v",
+      "commandLineArgs": "-s autoclass -v",
       "workingDirectory": "E:\\Dropbox\\ROAMING\\Visual Studio 17\\Projects\\LibroConserjeria\\LibroConserjeria\\Macros"
     }
   }
